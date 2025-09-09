@@ -74,11 +74,20 @@
       border-radius: 8px;
       transition: background-color 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 123, 255, 0.6);
+
+      /* Animasi besar-kecil */
+      animation: pulseButton 1.5s infinite;
     }
 
     button:hover {
       background-color: #0056b3;
       box-shadow: 0 6px 12px rgba(0, 86, 179, 0.8);
+    }
+
+    @keyframes pulseButton {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
