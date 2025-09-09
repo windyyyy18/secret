@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>secret</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 150px;
+      background: #000;
+      color: white;
+    }
+
+    #name {
+      font-size: 60px;
+      font-weight: bold;
+      letter-spacing: 10px;
+    }
+
+    .letter {
+      opacity: 0.3;
+      transition: opacity 0.5s ease;
+      display: inline-block;
+      color: #fff;
+    }
+
+    .letter.active {
+      opacity: 1;
+      color: #00aaff;
+      text-shadow: 0 0 10px #00aaff;
+    }
+
+    p {
+      font-size: 22px;
+      margin-bottom: 30px;
+      color: #ccc;
+      /* Efek glow lampu putih */
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #fff;
+      animation: pulseGlow 2s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        text-shadow:
+          0 0 3px #fff,
+          0 0 7px #fff,
+          0 0 10px #fff,
+          0 0 20px #fff;
+        opacity: 0.7;
+      }
+      100% {
+        text-shadow:
+          0 0 10px #fff,
+          0 0 20px #fff,
+          0 0 30px #fff,
+          0 0 50px #fff;
+        opacity: 1;
+      }
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 20px;
+      cursor: pointer;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 123, 255, 0.6);
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      box-shadow: 0 6px 12px rgba(0, 86, 179, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <div id="name"></div>
+  <p>i have something for u!!</p>
+  <button onclick="location.href='flowers.html'">Klik di sini</button>
+
+  <script>
+    const name = "DHODO";
+    const nameContainer = document.getElementById('name');
+
+    // Buat span untuk tiap huruf
+    for (let i = 0; i < name.length; i++) {
+      const span = document.createElement('span');
+      span.textContent = name[i];
+      span.classList.add('letter');
+      nameContainer.appendChild(span);
+    }
+
+    const letters = document.querySelectorAll('.letter');
+    let current = 0;
+
+    function updateActiveLetter() {
+      letters.forEach((letter, i) => {
+        letter.classList.remove('active');
+      });
+      letters[current].classList.add('active');
+      current++;
+      if (current >= letters.length) current = 0;
+    }
+
+    // Tampilkan huruf pertama aktif
+    updateActiveLetter();
+
+    // Ganti huruf aktif tiap 1 detik
+    setInterval(updateActiveLetter, 1000);
+  </script>
+</body>
+</html>
