@@ -927,12 +927,9 @@ body {
     transform: rotate(45deg) scale(0);
   }
 }
-.flower__g-fr__leaf--8 {
-  left: -4vmin;
-  top: 15vmin;
-  transform: rotate(15deg) rotateY(-180deg);
-  -webkit-animation: flower__g-fr-leaft-ans-8 0.5s 3.8s linear backwards;
-          animation: flower__g-fr-leaft-ans-8 0.5s 3.8s linear backwards;
+.flower__leaf {
+  background-color: #ff9ecf;
+  background-image: linear-gradient(to top, #ff6fb1, #ffb3d9);
 }
 @-webkit-keyframes flower__g-fr-leaft-ans-8 {
   0% {

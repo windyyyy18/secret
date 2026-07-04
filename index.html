@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>secret</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,6 +18,7 @@
       font-size: 60px;
       font-weight: bold;
       letter-spacing: 10px;
+      text-shadow: 0 0 15px #ff69b4;
     }
 
     .letter {
@@ -28,38 +30,37 @@
 
     .letter.active {
       opacity: 1;
-      color: #00aaff;
-      text-shadow: 0 0 10px #00aaff;
+      color: #ff69b4;
+      text-shadow: 0 0 10px #ff69b4;
     }
 
     p {
       font-size: 22px;
       margin-bottom: 30px;
-      color: #ccc;
-      /* Efek glow lampu putih */
+      color: #ffc0cb;
       text-shadow:
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 20px #fff,
-        0 0 40px #fff;
+        0 0 5px #ff69b4,
+        0 0 10px #ff69b4,
+        0 0 20px #ff1493,
+        0 0 40px #ff1493;
       animation: pulseGlow 2s infinite alternate;
     }
 
     @keyframes pulseGlow {
       0% {
         text-shadow:
-          0 0 3px #fff,
-          0 0 7px #fff,
-          0 0 10px #fff,
-          0 0 20px #fff;
+          0 0 3px #ffb6d9,
+          0 0 7px #ff69b4,
+          0 0 10px #ff1493,
+          0 0 20px #ff1493;
         opacity: 0.7;
       }
       100% {
         text-shadow:
-          0 0 10px #fff,
-          0 0 20px #fff,
-          0 0 30px #fff,
-          0 0 50px #fff;
+          0 0 10px #ffb6d9,
+          0 0 20px #ff69b4,
+          0 0 30px #ff1493,
+          0 0 50px #ff1493;
         opacity: 1;
       }
     }
@@ -69,19 +70,17 @@
       font-size: 20px;
       cursor: pointer;
       border: none;
-      background-color: #007bff;
+      background-color: #ff69b4;
       color: white;
       border-radius: 8px;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 123, 255, 0.6);
-
-      /* Animasi besar-kecil */
+      transition: 0.3s ease;
+      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.6);
       animation: pulseButton 1.5s infinite;
     }
 
     button:hover {
-      background-color: #0056b3;
-      box-shadow: 0 6px 12px rgba(0, 86, 179, 0.8);
+      background-color: #ff1493;
+      box-shadow: 0 6px 12px rgba(255, 20, 147, 0.8);
     }
 
     @keyframes pulseButton {
@@ -91,16 +90,16 @@
     }
   </style>
 </head>
+
 <body>
   <div id="name"></div>
-  <p>i have something for u!!</p>
+  <p>i have something for u!! 💗</p>
   <button onclick="location.href='flowers.html'">Klik di sini</button>
 
   <script>
-    const name = "DHODO";
+    const name = "HALLOW";
     const nameContainer = document.getElementById('name');
 
-    // Buat span untuk tiap huruf
     for (let i = 0; i < name.length; i++) {
       const span = document.createElement('span');
       span.textContent = name[i];
@@ -112,18 +111,13 @@
     let current = 0;
 
     function updateActiveLetter() {
-      letters.forEach((letter, i) => {
-        letter.classList.remove('active');
-      });
+      letters.forEach(letter => letter.classList.remove('active'));
       letters[current].classList.add('active');
       current++;
       if (current >= letters.length) current = 0;
     }
 
-    // Tampilkan huruf pertama aktif
     updateActiveLetter();
-
-    // Ganti huruf aktif tiap 1 detik
     setInterval(updateActiveLetter, 1000);
   </script>
 </body>
